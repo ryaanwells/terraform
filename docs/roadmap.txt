@@ -1,0 +1,58 @@
+Milestone 1 (The Map)
+==========================
+- Define the interface of a map
+- Define the asset management of game elements
+- Draw a static grid-based map
+
+Milestone 2 (The Movement)
+===========================
+- Draw sprites on top of the map
+- Compute movement area of sprite and display on map
+- Move sprite/redraw in different grid location (jump to new location)
+- Simple input processing of clicks (selecting a sprite)
+
+Milestone 3 (The Game Loop)
+===========================
+- Detect when a turn is completed (all sprites moved/action taken)
+- Change to next players turn
+- Distinguish between which sprites can be interracted with on each
+turn
+
+Milestone 4 (The Terrain)
+===========================
+- Define how terrain affects different sprites
+- Adapt movement to care for different terrain
+- Adapt drawing sprites on map to care for terrain
+
+Milestone 5 (The Game)
+===========================
+- Define the game logic (terrain, units, buildings etc)
+- Add functionality to modify the terrain
+- Create extra turn step to modify the terrain
+- Update the draw functionality to change tile on terrain change
+
+Milestone 6 (The Animation)
+============================
+- Define the sprite animations
+- Define the tween animations
+- Define the fog-of-war
+- Add sounds
+
+Milestone 7 (The Camera and UI)
+============================
+- Define the controls for the camera
+- Define the movement of the camera
+- Define what elements will be drawn w.r.t the camera
+- Define the UI bar and its contents
+
+Milestone 8 (The Last Bits)
+===========================
+- Define the main menu
+- Define how to save a game
+- Define how to load a game
+- Define how a game is generated
+
+Milestone 9 (The First Release)
+===============================
+- Alpha Testing
+- Device deployment
