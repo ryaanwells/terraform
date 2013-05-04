@@ -4,18 +4,18 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
-import com.terraform.map.Map;
+import com.terraform.map.GameMap;
 
 public class MapTests {
 	
-	private Map map;
+	private GameMap map;
 	
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
 	
 	@Before
 	public void before(){
-		map = new Map();
+		map = new GameMap();
 	}
 	
 	@Test

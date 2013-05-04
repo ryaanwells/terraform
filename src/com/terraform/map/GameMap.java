@@ -1,9 +1,9 @@
 package com.terraform.map;
 
-public class Map {
+public class GameMap {
 	private int[][] map;
 		
-	public Map(){
+	public GameMap(){
 		map = new int[12][10];
 			for(int[] i: map){
 				for(int j:i){
