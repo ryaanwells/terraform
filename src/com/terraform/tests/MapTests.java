@@ -8,7 +8,7 @@ import com.terraform.map.Map;
 
 public class MapTests {
 	
-	Map map;
+	private Map map;
 	
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
