@@ -1,0 +1,20 @@
+<project name="Terraform" default="build" basedir=".">
+    <description>
+        Buildfile for Terraform game.
+    </description>
+
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="bin" location="bin"/>
+
+  <!-- Classpath properties -->
+
+  <target name="build">
+    <javac srcdir="${src}" destdir="${bin}"/>
+  </target>
+
+  <target name="clean">
+    <delete dir="${bin}"/>
+  </target>
+
+</project>
