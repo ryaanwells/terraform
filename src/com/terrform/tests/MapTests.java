@@ -3,10 +3,24 @@ package com.terrform.tests;
 import static org.junit.Assert.*;
 import org.junit.*;
 
-public class MapTests {
+import com.terrform.map.*;
 
+public class MapTests {
+	
+	MapInterface map;
+	
+	@Before
+	public void before(){
+		map = new Map();
+	}
+	
 	@Test
-	public void ThisShouldFail(){
-		assertTrue(true);
+	public void getTilesOnXAxis(){
+		assertEquals(map.getTilesXAxis(),12);
+	}
+	
+	@Test
+	public void getTilesOnYAxis(){
+		assertEquals(map.getTilesYAxis(),10);
 	}
 }
