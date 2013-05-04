@@ -1,4 +1,4 @@
-package com.terrform.desktop;
+package com.terraform.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.terraform.main.Terraform;

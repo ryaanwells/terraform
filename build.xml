@@ -1,0 +1,48 @@
+<project name="Terraform" default="build" basedir=".">
+    <description>
+        Buildfile for Terraform game.
+    </description>
+
+    <!-- set global properties for this build -->
+    <property name="src" location="src"/>
+    <property name="bin" location="bin"/>
+    <property name="lib" location="lib"/>
+    <property name="dist" location="dist"/>
+
+    <property name="desktop-main" value="com.terraform.desktop.DesktopMain"/>
+
+    <!-- Classpath properties -->
+    <path id="classpath">
+        <fileset dir="${lib}">
+            <include name="*.jar"/>
+            <exclude name="gdx-sources.jar"/>
+        </fileset>
+    </path>
+
+    <!-- Build all source files -->
+    <target name="build">
+        <mkdir dir="${bin}"/>
+        <javac srcdir="${src}" destdir="${bin}" includeantruntime="false">
+            <classpath refid="classpath"/>
+        </javac>
+    </target>
+
+    <!-- Construct an executable version of the desktop game -->
+    <target name="make-desktop" depends="build">
+        <mkdir dir="${dist}/desktop"/>
+        <jar destfile="${dist}/desktop/terraform.jar" basedir="${bin}">
+            <!-- This is a very hacky way to do the dependancy support-->
+            <zipgroupfileset dir="${lib}" includes="*.jar"/>
+            <manifest>
+                <attribute name="Main-Class" value="${desktop-main}"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- Remove all uneeded files -->
+    <target name="clean">
+        <delete dir="${bin}"/>
+        <delete dir="${dist}"/>
+    </target>
+
+</project>
