@@ -1,22 +1,22 @@
 package com.terrform.map;
 
-public class Map implements MapInterface {
-	private int xtiles;
-	private int ytiles;
-	
+public class Map {
+	private int[][] map;
+		
 	public Map(){
-		xtiles = 12;
-		ytiles = 10;
+		map = new int[12][10];
 	}
 	
-	@Override
 	public int getTilesXAxis() {
-		return xtiles;
+		return map.length;
 	}
 
-	@Override
 	public int getTilesYAxis() {
-		return ytiles;
+		return map[0].length;
 	}
-
+	
+	public boolean isValidIndex(int x, int y) {
+		return (x>=0 && x<getTilesXAxis() && y>=0 && y<getTilesYAxis());
+	}
+	
 }
