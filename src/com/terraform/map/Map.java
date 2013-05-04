@@ -1,4 +1,4 @@
-package com.terrform.map;
+package com.terraform.map;
 
 public class Map {
 	private int[][] map;

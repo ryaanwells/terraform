@@ -1,10 +1,10 @@
-package com.terrform.tests;
+package com.terraform.tests;
 
 import static org.junit.Assert.*;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
-import com.terrform.map.*;
+import com.terraform.map.Map;
 
 public class MapTests {
 	
