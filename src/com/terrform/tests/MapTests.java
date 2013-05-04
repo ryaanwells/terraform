@@ -46,16 +46,16 @@ public class MapTests {
 	
 	@Test
 	public void validIndex_YInvalidOutOfRange(){
-		assertEquals(false,map.isValidIndex(0, 100));
+		assertEquals(false,map.isValidIndex(0, map.getTilesYAxis()+1));
 	}
 	
 	@Test
 	public void validIndex_XInvalidOutOfRange(){
-		assertEquals(false,map.isValidIndex(100, 0));
+		assertEquals(false,map.isValidIndex(map.getTilesXAxis()+1, 0));
 	}
 	
 	@Test
 	public void validIndex_XInvalidOutOfRangeYInvalidOutOfRange(){
-		assertEquals(false,map.isValidIndex(100,100));
+		assertEquals(false,map.isValidIndex(map.getTilesXAxis()+1,map.getTilesYAxis()+1));
 	}
 }
