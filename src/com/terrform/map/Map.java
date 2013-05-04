@@ -24,4 +24,8 @@ public class Map {
 		return (x>=0 && x<getTilesXAxis() && y>=0 && y<getTilesYAxis());
 	}
 	
+	public int getValueAtIndex(int x, int y){
+		return map[x][y];
+	}
+	
 }
