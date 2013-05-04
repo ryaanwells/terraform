@@ -5,6 +5,11 @@ public class Map {
 		
 	public Map(){
 		map = new int[12][10];
+			for(int[] i: map){
+				for(int j:i){
+					i[j]=0;
+			}	
+		}	
 	}
 	
 	public int getTilesXAxis() {
