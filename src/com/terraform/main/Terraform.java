@@ -1,13 +1,17 @@
 package com.terraform.main;
 
 import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.terraform.map.GameMap;
+import com.terraform.map.MapRenderer;
 
 public class Terraform implements ApplicationListener {
+	
+	private MapRenderer mapRenderer;
 
 	@Override
 	public void create() {
-		// TODO Auto-generated method stub
-		
+		mapRenderer = new MapRenderer (new GameMap(), new ShapeRenderer());
 	}
 
 	@Override
@@ -18,7 +22,7 @@ public class Terraform implements ApplicationListener {
 
 	@Override
 	public void render() {
-		// TODO Auto-generated method stub
+		mapRenderer.render();
 		
 	}
 
