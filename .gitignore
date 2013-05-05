@@ -76,3 +76,6 @@ local.properties
 *.aux
 *.bbl
 *.blg
+
+#Paths
+dist/

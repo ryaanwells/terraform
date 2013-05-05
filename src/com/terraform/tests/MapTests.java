@@ -1,5 +1,8 @@
 package com.terraform.tests;
 
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import static org.junit.Assert.*;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
@@ -102,6 +105,11 @@ public class MapTests {
 	public void getValueAtIndex_XInvalidOutOfRangeYInvalidOutOfRange(){
 		exception.expect(IndexOutOfBoundsException.class);
 		map.getValueAtIndex(map.getTilesXAxis()+1, map.getTilesYAxis()+1);
+	}
+	
+	@Test
+	public void getNumberOfTilesReturnsTheFullGridSize () {
+		assertThat (map.getTileCount(), is(120));
 	}
 	
 }

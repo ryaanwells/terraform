@@ -27,5 +27,9 @@ public class GameMap {
 	public int getValueAtIndex(int x, int y){
 		return map[x][y];
 	}
+
+	public int getTileCount() {
+		return getTilesXAxis() * getTilesYAxis();
+	}
 	
 }

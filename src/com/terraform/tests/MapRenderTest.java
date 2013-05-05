@@ -5,14 +5,24 @@ import static org.hamcrest.Matchers.is;
 
 import org.junit.Test;
 
+import com.terraform.map.GameMap;
 import com.terraform.map.MapRenderer;
 
 public class MapRenderTest {
 
 	@Test
-	public void renderingNoGameMapHasNoEffect() {
+	public void renderingNoGameMapDrawsZeroTiles() {
 		MapRenderer mapRenderer = new MapRenderer(null, null);
-		boolean ret = mapRenderer.render();
-		assertThat(ret, is(false));
+		int ret = mapRenderer.render();
+		assertThat(ret, is(0));
+	}
+	
+	//TODO: Change this to look at visible tiles
+	@Test
+	public void renderingAGameMapDrawsAllTiles() {
+		GameMap map = new GameMap();
+		MapRenderer mapRenderer = new MapRenderer(map, null);
+		int ret = mapRenderer.render();
+		assertThat(ret, is(map.getTileCount()));
 	}
 }
