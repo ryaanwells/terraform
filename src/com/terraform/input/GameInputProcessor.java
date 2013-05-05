@@ -13,8 +13,8 @@ public class GameInputProcessor implements InputProcessor {
 	
 	public GameInputProcessor(GameMap gameMap, int width, int height){
 		this.gameMap = gameMap;
-		this.screenWidth = width;
-		this.screenHeight = height;
+		this.screenWidth = (width>0) ? width : 1;
+		this.screenHeight = (height>0) ? height : 1;
 	}
 	
 	@Override
@@ -40,7 +40,9 @@ public class GameInputProcessor implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		gameMap.setValueAtIndex(screenX/gameMap.getTilesXAxis(),screenY/gameMap.getTilesYAxis(),null);
+		int xIndex = screenX*gameMap.getTilesXAxis()/screenWidth;
+		int yIndex = (screenHeight - screenY)*gameMap.getTilesYAxis()/screenHeight;
+		System.out.println("[" + xIndex + ", " + yIndex + "]");
 		return true;
 	}
 

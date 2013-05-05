@@ -23,6 +23,7 @@ public class Terraform implements ApplicationListener {
 		gameMap = new GameMap(20,20);
 		Gdx.graphics.setDisplayMode(Gdx.graphics.getDesktopDisplayMode());
 		Gdx.input.setInputProcessor(new GameInputProcessor(gameMap, Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
+		System.out.println(Gdx.graphics.getWidth() + " " + Gdx.graphics.getHeight());
 		//Test Code
 		MapTile mapTile = new MapTile();
 		mapTile.setTexture(new Texture(("assets/testTexture.bmp")));
