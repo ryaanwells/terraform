@@ -8,15 +8,16 @@ import org.junit.*;
 
 public class InputTests {
 
-	private GameMap gameMap;
+	private MapManager mapManager;
 	private GameInputProcessor GIP;
 	private int screenWidth = 100;
 	private int screenHeight = 100;
 	
 	@Before
 	public void Before(){
-		gameMap = new GameMap(50,50);
-		GIP = new GameInputProcessor(gameMap,screenWidth,screenHeight);
+		GameMap GP = new GameMap(20,20);
+		mapManager = new MapManager(GP, null);
+		GIP = new GameInputProcessor(mapManager,screenWidth,screenHeight);
 	}
 	
 	@Test
