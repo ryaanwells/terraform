@@ -2,8 +2,6 @@ package com.terraform.map;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 
 public class MapRenderer {
 	
@@ -42,6 +40,14 @@ public class MapRenderer {
 			}
 		}
 		return drawn;
+	}
+
+	public void setTileSheet(TileSheet tileSheet) {
+	}
+
+	public TileSheet getTileSheet() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
