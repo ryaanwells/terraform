@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class MapRenderer {
 	
 	private GameMap map;
+	private TileSheet tileSheet;
 	private SpriteBatch spriteBatch;
 
 	public MapRenderer(GameMap map, SpriteBatch spriteBatch) {
@@ -43,11 +44,11 @@ public class MapRenderer {
 	}
 
 	public void setTileSheet(TileSheet tileSheet) {
+		this.tileSheet = tileSheet;
 	}
 
 	public TileSheet getTileSheet() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.tileSheet;
 	}
 
 }

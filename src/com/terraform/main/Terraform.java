@@ -9,12 +9,15 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.terraform.map.GameMap;
 import com.terraform.map.MapRenderer;
 import com.terraform.map.MapTile;
+import com.terraform.map.TileSheet;
 
 public class Terraform implements ApplicationListener {
 	
 	private MapRenderer mapRenderer;
 	private SpriteBatch spriteBatch;
 	private GameMap gameMap;
+	
+	TileSheet tileSheet;
 
 	@Override
 	public void create() {
@@ -25,6 +28,9 @@ public class Terraform implements ApplicationListener {
 		MapTile mapTile = new MapTile();
 		mapTile.setTexture(new Texture(("assets/testTexture.bmp")));
 		gameMap.setValue(10, 10, mapTile);
+		
+		tileSheet = new TileSheet("assets/testTileMap.png", 32, 32);
+		
 		
 		mapRenderer = new MapRenderer (gameMap, spriteBatch);
 	}
@@ -39,6 +45,10 @@ public class Terraform implements ApplicationListener {
 	public void render() {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		mapRenderer.render();
+		spriteBatch.begin();
+		spriteBatch.draw(tileSheet.getTileByOffset(5, 3),100,100);
+		spriteBatch.draw(tileSheet.getTileByOffset(0, 0),150,100);
+		spriteBatch.end();
 		
 	}
 

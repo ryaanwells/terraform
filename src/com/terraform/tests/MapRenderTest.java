@@ -5,7 +5,6 @@ import static org.hamcrest.Matchers.is;
 
 import org.junit.Test;
 
-import com.terraform.map.GameMap;
 import com.terraform.map.MapRenderer;
 import com.terraform.map.TileSheet;
 
@@ -21,8 +20,8 @@ public class MapRenderTest {
 	@Test
 	public void allowATileSheetToBeSet () {
 		MapRenderer mapRenderer = new MapRenderer(null, null);
-		TileSheet tileSheet = new TileSheet("assets/testTileMap.png");
-		mapRenderer.setTileSheet(null);
+		TileSheet tileSheet = new TileSheet("assets/testTileMap.png", 32, 32);
+		mapRenderer.setTileSheet(tileSheet);
 		assertThat (mapRenderer.getTileSheet(), is(tileSheet));
 	}
 	
