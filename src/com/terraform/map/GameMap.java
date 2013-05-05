@@ -1,17 +1,12 @@
 package com.terraform.map;
 
-public class Map {
+public class GameMap {
 	private int[][] map;
-		
-	public Map(){
-		map = new int[12][10];
-			for(int[] i: map){
-				for(int j:i){
-					i[j]=0;
-			}	
-		}	
-	}
 	
+	public GameMap(int xtile, int ytiles) {
+		map = new int[xtile][ytiles];
+	}
+
 	public int getTilesXAxis() {
 		return map.length;
 	}
@@ -26,6 +21,10 @@ public class Map {
 	
 	public int getValueAtIndex(int x, int y){
 		return map[x][y];
+	}
+
+	public int getTileCount() {
+		return getTilesXAxis() * getTilesYAxis();
 	}
 	
 }
