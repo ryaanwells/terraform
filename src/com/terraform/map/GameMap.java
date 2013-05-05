@@ -27,4 +27,8 @@ public class GameMap {
 		return getTilesXAxis() * getTilesYAxis();
 	}
 	
+	public void setValueAtIndex(int x, int y, int value){
+		map[x][y] = value;
+	}
+	
 }

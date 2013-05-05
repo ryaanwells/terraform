@@ -1,17 +1,22 @@
 package com.terraform.main;
 
 import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.terraform.input.GameInputProcessor;
 import com.terraform.map.GameMap;
 import com.terraform.map.MapRenderer;
 
 public class Terraform implements ApplicationListener {
 	
 	private MapRenderer mapRenderer;
+	private GameMap gameMap = new GameMap(50,50);
 
 	@Override
 	public void create() {
-		mapRenderer = new MapRenderer (new GameMap(50,50), new ShapeRenderer());
+		mapRenderer = new MapRenderer (gameMap, new ShapeRenderer());
+		Gdx.graphics.setDisplayMode(Gdx.graphics.getDesktopDisplayMode());
+		Gdx.input.setInputProcessor(new GameInputProcessor(gameMap, Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
 	}
 
 	@Override
@@ -22,8 +27,7 @@ public class Terraform implements ApplicationListener {
 
 	@Override
 	public void render() {
-		mapRenderer.render();
-		
+		mapRenderer.render();		
 	}
 
 	@Override

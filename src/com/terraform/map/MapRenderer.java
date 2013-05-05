@@ -24,10 +24,10 @@ public class MapRenderer {
 		
 		for (int i = 0; i < map.getTilesXAxis(); i++) {
 			for (int j = 0; j < map.getTilesYAxis(); j++) {
-				/* Temporaily use a shapeRenderer for testing 
+				/* Temporaily use a shapeRenderer for testing */
 				shapeRenderer.begin(ShapeType.Rectangle);
 				shapeRenderer.rect(i*TILE_SIZE, j*TILE_SIZE, TILE_SIZE, TILE_SIZE);
-				shapeRenderer.end(); */
+				shapeRenderer.end(); 
 				drawn++;
 			}
 		}
