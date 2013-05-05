@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.terraform.input.GameInputProcessor;
 import com.terraform.map.GameMap;
 import com.terraform.map.MapRenderer;
 import com.terraform.map.MapTile;
@@ -20,7 +21,9 @@ public class Terraform implements ApplicationListener {
 	public void create() {
 		spriteBatch = new SpriteBatch();
 		gameMap = new GameMap(20,20);
-		
+		Gdx.graphics.setDisplayMode(Gdx.graphics.getDesktopDisplayMode());
+		Gdx.input.setInputProcessor(new GameInputProcessor(gameMap, Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
+		System.out.println(Gdx.graphics.getWidth() + " " + Gdx.graphics.getHeight());
 		//Test Code
 		MapTile mapTile = new MapTile();
 		mapTile.setTexture(new Texture(("assets/testTexture.bmp")));
@@ -39,7 +42,6 @@ public class Terraform implements ApplicationListener {
 	public void render() {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		mapRenderer.render();
-		
 	}
 
 	@Override

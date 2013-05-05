@@ -40,4 +40,8 @@ public class GameMap {
 		map[x][y] = mapTile;	
 	}
 	
+	public void setValueAtIndex(int x, int y, MapTile value){
+		map[x][y] = value;
+	}
+	
 }
