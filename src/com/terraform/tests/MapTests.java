@@ -11,6 +11,9 @@ import com.terraform.map.GameMap;
 
 public class MapTests {
 	
+	private static final int MAP_SIZE_Y = 10;
+	private static final int MAP_SIZE_X = 12;
+
 	private GameMap map;
 	
 	@Rule
@@ -18,17 +21,17 @@ public class MapTests {
 	
 	@Before
 	public void before(){
-		map = new GameMap();
+		map = new GameMap(MAP_SIZE_X, MAP_SIZE_Y);
 	}
 	
 	@Test
 	public void getTilesOnXAxis(){
-		assertEquals(map.getTilesXAxis(),12);
+		assertEquals(map.getTilesXAxis(),MAP_SIZE_X);
 	}
 	
 	@Test
 	public void getTilesOnYAxis(){
-		assertEquals(map.getTilesYAxis(),10);
+		assertEquals(map.getTilesYAxis(),MAP_SIZE_Y);
 	}
 	
 	@Test
@@ -110,6 +113,13 @@ public class MapTests {
 	@Test
 	public void getNumberOfTilesReturnsTheFullGridSize () {
 		assertThat (map.getTileCount(), is(120));
+	}
+	
+	@Test
+	public void mapAllowsTheUserToSetTheSizeOnCreation () {
+		GameMap map = new GameMap(20,20);
+		assertThat(map.getTilesXAxis(), is(20));
+		assertThat(map.getTilesYAxis(), is(20));
 	}
 	
 }

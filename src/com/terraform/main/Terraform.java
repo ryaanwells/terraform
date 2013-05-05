@@ -11,7 +11,7 @@ public class Terraform implements ApplicationListener {
 
 	@Override
 	public void create() {
-		mapRenderer = new MapRenderer (new GameMap(), new ShapeRenderer());
+		mapRenderer = new MapRenderer (new GameMap(50,50), new ShapeRenderer());
 	}
 
 	@Override

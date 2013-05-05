@@ -20,9 +20,9 @@ public class MapRenderTest {
 	//TODO: Change this to look at visible tiles
 	@Test
 	public void renderingAGameMapDrawsAllTiles() {
-		GameMap map = new GameMap();
+		GameMap map = new GameMap(10,10);
 		MapRenderer mapRenderer = new MapRenderer(map, null);
 		int ret = mapRenderer.render();
-		assertThat(ret, is(map.getTileCount()));
+		assertThat(ret, is(100));
 	}
 }
