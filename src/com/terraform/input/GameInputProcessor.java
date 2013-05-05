@@ -40,7 +40,7 @@ public class GameInputProcessor implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		gameMap.setValueAtIndex(screenX/gameMap.getTilesXAxis(),screenY/gameMap.getTilesYAxis(),1);
+		gameMap.setValueAtIndex(screenX/gameMap.getTilesXAxis(),screenY/gameMap.getTilesYAxis(),null);
 		return true;
 	}
 

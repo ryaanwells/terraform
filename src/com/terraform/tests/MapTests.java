@@ -8,6 +8,7 @@ import org.junit.*;
 import org.junit.rules.ExpectedException;
 
 import com.terraform.map.GameMap;
+import com.terraform.map.MapTile;
 
 public class MapTests {
 	
@@ -71,7 +72,7 @@ public class MapTests {
 	
 	@Test
 	public void getValueAtIndex_XYValid(){
-		assertEquals(0,map.getValueAtIndex(0, 0));
+		assertEquals(new MapTile(),map.getValueAtIndex(0, 0));
 	}
 	
 	@Test
@@ -122,4 +123,11 @@ public class MapTests {
 		assertThat(map.getTilesYAxis(), is(20));
 	}
 	
+	@Test 
+	public void mapAllowsTheUserToSetTheValueOfATile () {
+		MapTile mapTile = new MapTile();
+		map.setValue(5,5, mapTile);
+		assertThat(map.getValueAtIndex(5, 5), is(mapTile));
+	}
+
 }

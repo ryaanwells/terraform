@@ -1,18 +1,18 @@
 package com.terraform.map;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 
 public class MapRenderer {
 	
-	private static final int TILE_SIZE = 32;
-	
 	private GameMap map;
-	private ShapeRenderer shapeRenderer;
+	private SpriteBatch spriteBatch;
 
-	public MapRenderer(GameMap map, ShapeRenderer shapeRenderer) {
+	public MapRenderer(GameMap map, SpriteBatch spriteBatch) {
 		this.map = map;
-		this.shapeRenderer = shapeRenderer;
+		this.spriteBatch = spriteBatch;
 	}
 
 	public int render() {
@@ -22,16 +22,25 @@ public class MapRenderer {
 		
 		int drawn = 0;
 		
+		spriteBatch.begin();
+		drawn = addAllValidDrawsToBatch(drawn);
+		spriteBatch.end();
+		
+		return drawn;
+	}
+
+	private int addAllValidDrawsToBatch(int drawn) {
 		for (int i = 0; i < map.getTilesXAxis(); i++) {
-			for (int j = 0; j < map.getTilesYAxis(); j++) {
-				/* Temporaily use a shapeRenderer for testing */
-				shapeRenderer.begin(ShapeType.Rectangle);
-				shapeRenderer.rect(i*TILE_SIZE, j*TILE_SIZE, TILE_SIZE, TILE_SIZE);
-				shapeRenderer.end(); 
+			for (int j = 0; j < map.getTilesYAxis(); j++) {	
+				
+				Texture currentTileTexture = map.getValueAtIndex(i, j).getTexture();
+				if (currentTileTexture == null) 
+					continue;
+				
+				spriteBatch.draw(currentTileTexture, i, j);	
 				drawn++;
 			}
 		}
-		
 		return drawn;
 	}
 
