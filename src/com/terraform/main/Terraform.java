@@ -1,6 +1,10 @@
 package com.terraform.main;
 
 import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.terraform.map.GameMap;
 import com.terraform.map.MapRenderer;
@@ -8,10 +12,12 @@ import com.terraform.map.MapRenderer;
 public class Terraform implements ApplicationListener {
 	
 	private MapRenderer mapRenderer;
+	private SpriteBatch spriteBatch;
 
 	@Override
 	public void create() {
-		mapRenderer = new MapRenderer (new GameMap(50,50), new ShapeRenderer());
+		spriteBatch = new SpriteBatch();
+		mapRenderer = new MapRenderer (new GameMap(50,50), spriteBatch);
 	}
 
 	@Override
@@ -22,6 +28,7 @@ public class Terraform implements ApplicationListener {
 
 	@Override
 	public void render() {
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		mapRenderer.render();
 		
 	}
