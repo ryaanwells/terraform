@@ -35,5 +35,9 @@ public class GameMap {
 	public int getTileCount() {
 		return getTilesXAxis() * getTilesYAxis();
 	}
+
+	public void setValue(int x, int y, MapTile mapTile) {
+		map[x][y] = mapTile;	
+	}
 	
 }

@@ -123,4 +123,11 @@ public class MapTests {
 		assertThat(map.getTilesYAxis(), is(20));
 	}
 	
+	@Test 
+	public void mapAllowsTheUserToSetTheValueOfATile () {
+		MapTile mapTile = new MapTile();
+		map.setValue(5,5, mapTile);
+		assertThat(map.getValueAtIndex(5, 5), is(mapTile));
+	}
+
 }

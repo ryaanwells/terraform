@@ -8,16 +8,25 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.terraform.map.GameMap;
 import com.terraform.map.MapRenderer;
+import com.terraform.map.MapTile;
 
 public class Terraform implements ApplicationListener {
 	
 	private MapRenderer mapRenderer;
 	private SpriteBatch spriteBatch;
+	private GameMap gameMap;
 
 	@Override
 	public void create() {
 		spriteBatch = new SpriteBatch();
-		mapRenderer = new MapRenderer (new GameMap(50,50), spriteBatch);
+		gameMap = new GameMap(20,20);
+		
+		//Test Code
+		MapTile mapTile = new MapTile();
+		mapTile.setTexture(new Texture(("assets/testTexture.bmp")));
+		gameMap.setValue(10, 10, mapTile);
+		
+		mapRenderer = new MapRenderer (gameMap, spriteBatch);
 	}
 
 	@Override
