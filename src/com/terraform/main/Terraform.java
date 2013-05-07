@@ -24,7 +24,7 @@ public class Terraform implements ApplicationListener {
 		spriteBatch = new SpriteBatch();
 		gameMap = new GameMap(20,20);
 		System.out.println(Gdx.graphics.getWidth() + " " + Gdx.graphics.getHeight());
-		mapManager = new MapManager(gameMap, new MapRenderer (gameMap, spriteBatch));
+		mapManager = new MapManager(gameMap, new MapRenderer (gameMap, spriteBatch), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		Gdx.input.setInputProcessor(new GameInputProcessor(mapManager, Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
 		//test code
 		MapTile mapTile = new MapTile();

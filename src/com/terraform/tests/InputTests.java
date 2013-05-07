@@ -16,7 +16,7 @@ public class InputTests {
 	@Before
 	public void Before(){
 		GameMap GP = new GameMap(20,20);
-		mapManager = new MapManager(GP, null);
+		mapManager = new MapManager(GP, null, screenWidth, screenHeight);
 		GIP = new GameInputProcessor(mapManager,screenWidth,screenHeight);
 	}
 	

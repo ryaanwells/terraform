@@ -6,15 +6,17 @@ public class MapManager {
 
 	private GameMap gameMap;
 	private MapRenderer mapRenderer;
+	private int screenX, screenY;
 
-
-	public MapManager(GameMap gameMap, MapRenderer mapRenderer) {
+	public MapManager(GameMap gameMap, MapRenderer mapRenderer, int screenX, int screenY) {
 		this.gameMap = gameMap;
 		this.mapRenderer = mapRenderer;
+		this.screenX = screenX;
+		this.screenY = screenY;
 	}
 	
 	public int render(){
-		return mapRenderer.render();
+		return mapRenderer.render(screenX, screenY);
 	}
 	
 	public void eventOn(int xIndex, int yIndex){
