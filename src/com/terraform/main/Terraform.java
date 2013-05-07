@@ -6,33 +6,32 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.terraform.input.GameInputProcessor;
 import com.terraform.map.GameMap;
+import com.terraform.map.MapManager;
 import com.terraform.map.MapRenderer;
 import com.terraform.map.MapTile;
 import com.terraform.map.TileSheet;
 
 public class Terraform implements ApplicationListener {
 	
-	private MapRenderer mapRenderer;
 	private SpriteBatch spriteBatch;
 	private GameMap gameMap;
-	
 	TileSheet tileSheet;
+	private MapManager mapManager;
 
 	@Override
 	public void create() {
+		Gdx.graphics.setDisplayMode(Gdx.graphics.getDesktopDisplayMode());
 		spriteBatch = new SpriteBatch();
 		gameMap = new GameMap(20,20);
-		
-		//Test Code
+		System.out.println(Gdx.graphics.getWidth() + " " + Gdx.graphics.getHeight());
+		mapManager = new MapManager(gameMap, new MapRenderer (gameMap, spriteBatch), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		Gdx.input.setInputProcessor(new GameInputProcessor(mapManager, Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
+		//test code
 		MapTile mapTile = new MapTile();
-		mapTile.setTexture(new Texture(("assets/testTexture.bmp")));
-		gameMap.setValue(10, 10, mapTile);
-		
-		tileSheet = new TileSheet("assets/testTileMap.png", 32, 32);
-		
-		
-		mapRenderer = new MapRenderer (gameMap, spriteBatch);
+		mapManager.addTextureToGameMap(10, 10, mapTile);
+		mapManager.addTextureToGameMap(0, 5, mapTile);
 	}
 
 	@Override
@@ -44,7 +43,8 @@ public class Terraform implements ApplicationListener {
 	@Override
 	public void render() {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		mapRenderer.render();
+		mapManager.render();
+
 		spriteBatch.begin();
 		spriteBatch.draw(tileSheet.getTileByOffset(5, 3),100,100);
 		spriteBatch.draw(tileSheet.getTileByOffset(0, 0),150,100);

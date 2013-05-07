@@ -13,7 +13,7 @@ public class MapRenderTest {
 	@Test
 	public void renderingNoGameMapDrawsZeroTiles() {
 		MapRenderer mapRenderer = new MapRenderer(null, null);
-		int ret = mapRenderer.render();
+		int ret = mapRenderer.render(1,1);
 		assertThat(ret, is(0));
 	}
 	
