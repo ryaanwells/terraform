@@ -9,11 +9,10 @@ import com.terraform.map.MapTile;
 
 public class TileTest {
 
-
 	@Test
-	public void tilesAreAssignedNoTextureByDefault() {
+	public void tilesAreAssignedSheetIndex0ByDefault() {
 		MapTile tile = new MapTile();
-		assertThat(tile.getTexture(), nullValue());
+		assertThat(tile.getSheetIndex(), is(0));
 	}
 
 }

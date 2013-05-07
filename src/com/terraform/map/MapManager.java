@@ -15,8 +15,8 @@ public class MapManager {
 		this.screenY = screenY;
 	}
 	
-	public int render(){
-		return mapRenderer.render(screenX, screenY);
+	public void render(){
+		mapRenderer.render(screenX, screenY);
 	}
 	
 	public void eventOn(int xIndex, int yIndex){

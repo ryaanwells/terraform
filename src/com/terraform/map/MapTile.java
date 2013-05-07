@@ -40,6 +40,11 @@ public class MapTile {
 			return false;
 		return true;
 	}
+
+	public int getSheetIndex() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 
