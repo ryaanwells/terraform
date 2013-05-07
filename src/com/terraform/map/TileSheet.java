@@ -2,18 +2,17 @@ package com.terraform.map;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.g2d.tiled.TileAtlas;
 
 public class TileSheet {
 	
 	private TextureRegion textureArray[][];
-	private String filename; 
+	private Texture tileSheetTexture; 
 	
 	private int xTileSize;
 	private int yTileSize;
 
-	public TileSheet(String filename, int xTileSize, int yTileSize) {
-		this.filename = filename;
+	public TileSheet(Texture tileSheetTexture, int xTileSize, int yTileSize) {
+		this.tileSheetTexture = tileSheetTexture;
 		this.xTileSize = xTileSize;
 		this.yTileSize = yTileSize;
 		updateTextureRegion();
@@ -22,7 +21,7 @@ public class TileSheet {
 	public TextureRegion getTileByOffset(int i, int j) {
 		if (i >=0 &&  i < textureArray.length && j >= 0 && j < textureArray[0].length)
 			return textureArray[i][j];
-		return null;
+		return textureArray[0][0]; //Default to the lowest position - Stops the engine complaining...
 	}
 
 	public void setXTileSize(int xTileSize) {
@@ -43,8 +42,12 @@ public class TileSheet {
 		return yTileSize;
 	}
 	
+	public void setNewTileSheetTexutre(Texture newTileSheetTexture){
+		this.tileSheetTexture = newTileSheetTexture;
+	}
+	
 	private void updateTextureRegion() {
-		textureArray = TextureRegion.split(new Texture(filename), xTileSize, yTileSize);
+		textureArray = TextureRegion.split(tileSheetTexture, xTileSize, yTileSize);
 	}
 
 }

@@ -17,21 +17,23 @@ public class Terraform implements ApplicationListener {
 	
 	private SpriteBatch spriteBatch;
 	private GameMap gameMap;
-	TileSheet tileSheet;
+	private TileSheet tileSheet;
 	private MapManager mapManager;
 
 	@Override
 	public void create() {
-		Gdx.graphics.setDisplayMode(Gdx.graphics.getDesktopDisplayMode());
+		//Gdx.graphics.setDisplayMode(Gdx.graphics.getDesktopDisplayMode()); - This line doesn't work!
+		
 		spriteBatch = new SpriteBatch();
 		gameMap = new GameMap(20,20);
-		System.out.println(Gdx.graphics.getWidth() + " " + Gdx.graphics.getHeight());
-		mapManager = new MapManager(gameMap, new MapRenderer (gameMap, spriteBatch), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		Gdx.input.setInputProcessor(new GameInputProcessor(mapManager, Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
+		//System.out.println(Gdx.graphics.getWidth() + " " + Gdx.graphics.getHeight());
+		//mapManager = new MapManager(gameMap, new MapRenderer (gameMap, spriteBatch), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		//Gdx.input.setInputProcessor(new GameInputProcessor(mapManager, Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
 		//test code
 		MapTile mapTile = new MapTile();
-		mapManager.addTextureToGameMap(10, 10, mapTile);
-		mapManager.addTextureToGameMap(0, 5, mapTile);
+		tileSheet = new TileSheet(new Texture("assets/testTileMap.png"),64,64);
+		//mapManager.addTextureToGameMap(10, 10, mapTile);
+		//mapManager.addTextureToGameMap(0, 5, mapTile);
 	}
 
 	@Override
@@ -43,12 +45,12 @@ public class Terraform implements ApplicationListener {
 	@Override
 	public void render() {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		mapManager.render();
+		//mapManager.render();
 
 		spriteBatch.begin();
-		spriteBatch.draw(tileSheet.getTileByOffset(5, 3),100,100);
-		spriteBatch.draw(tileSheet.getTileByOffset(0, 0),150,100);
-		spriteBatch.end();
+		spriteBatch.draw(tileSheet.getTileByOffset(2, 2),100,100);
+		spriteBatch.draw(tileSheet.getTileByOffset(0, 0),200,200);
+		spriteBatch.end(); 
 		
 	}
 
