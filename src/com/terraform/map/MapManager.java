@@ -11,17 +11,13 @@ public class MapManager {
 	public MapManager(GameMap gameMap, MapRenderer mapRenderer) {
 		this.gameMap = gameMap;
 		this.mapRenderer = mapRenderer;
-
-		MapTile mapTile = new MapTile();
-		mapTile.setTexture(new Texture(("assets/testTexture.bmp")));
-		gameMap.setValue(10, 10, mapTile);
 	}
 	
 	public int render(){
 		return mapRenderer.render();
 	}
 	
-	public void eventOn(int screenX, int screenY){
+	public void eventOn(int xIndex, int yIndex){
 
 	}
 
@@ -30,7 +26,10 @@ public class MapManager {
 	}
 
 	public int getTilesYAxis() {
-		// TODO Auto-generated method stub
 		return gameMap.getTilesYAxis();
+	}
+	
+	public void addTextureToGameMap(int x, int y, MapTile mapTile){
+		gameMap.setValue(x, y, mapTile);
 	}
 }

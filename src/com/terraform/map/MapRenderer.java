@@ -1,5 +1,6 @@
 package com.terraform.map;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -36,8 +37,7 @@ public class MapRenderer {
 				Texture currentTileTexture = map.getValueAtIndex(i, j).getTexture();
 				if (currentTileTexture == null) 
 					continue;
-				
-				spriteBatch.draw(currentTileTexture, i, j);	
+				spriteBatch.draw(currentTileTexture, i*(Gdx.graphics.getWidth()*1.0f)/(map.getTilesXAxis()*1.0f), j*(Gdx.graphics.getHeight()*1.0f)/(map.getTilesYAxis()*1.0f));	
 				drawn++;
 			}
 		}

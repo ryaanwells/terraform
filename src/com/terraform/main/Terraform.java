@@ -20,14 +20,18 @@ public class Terraform implements ApplicationListener {
 
 	@Override
 	public void create() {
+		Gdx.graphics.setDisplayMode(Gdx.graphics.getDesktopDisplayMode());
 		spriteBatch = new SpriteBatch();
 		gameMap = new GameMap(20,20);
-		Gdx.graphics.setDisplayMode(Gdx.graphics.getDesktopDisplayMode());
 		System.out.println(Gdx.graphics.getWidth() + " " + Gdx.graphics.getHeight());
-		//Test Code
 		mapManager = new MapManager(gameMap, new MapRenderer (gameMap, spriteBatch));
 		Gdx.input.setInputProcessor(new GameInputProcessor(mapManager, Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
-
+		//test code
+		MapTile mapTile = new MapTile();
+		Texture t = new Texture(("assets/testTexture.bmp"));
+		mapTile.setTexture(t);
+		mapManager.addTextureToGameMap(10, 10, mapTile);
+		mapManager.addTextureToGameMap(0, 5, mapTile);
 	}
 
 	@Override

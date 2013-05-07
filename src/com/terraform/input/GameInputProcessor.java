@@ -3,7 +3,6 @@ package com.terraform.input;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
-import com.terraform.map.GameMap;
 import com.terraform.map.MapManager;
 
 public class GameInputProcessor implements InputProcessor {
@@ -46,7 +45,7 @@ public class GameInputProcessor implements InputProcessor {
 			int yIndex = (screenHeight - screenY)*mapManager.getTilesYAxis()/screenHeight;
 			//pass this value off to whoever cares about it
 			System.out.println("[" + xIndex + ", " + yIndex + "]");
-			mapManager.eventOn(screenX, screenY);
+			mapManager.eventOn(xIndex, yIndex);
 			return true;
 		}
 		return false;
