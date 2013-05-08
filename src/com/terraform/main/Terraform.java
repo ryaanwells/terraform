@@ -25,7 +25,7 @@ public class Terraform implements ApplicationListener {
 
 	@Override
 	public void create() {
-		//Gdx.graphics.setDisplayMode(Gdx.graphics.getDesktopDisplayMode()); - This line doesn't work!
+		//Gdx.graphics.setDisplayMode(Gdx.graphics.getDesktopDisplayMode()); //- This line doesn't work!
 		
 		spriteBatch = new SpriteBatch();
 		gameMap = new GameMap(20,20);
@@ -52,7 +52,6 @@ public class Terraform implements ApplicationListener {
 	@Override
 	public void render() {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		//mapManager.render();
 		mapRenderer.render(480, 320);
 
 		/*spriteBatch.begin();

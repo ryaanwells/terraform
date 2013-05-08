@@ -21,7 +21,7 @@ public class TileSheet {
 	public TextureRegion getTileByOffset(int i, int j) {
 		if (i >=0 &&  i < textureArray.length && j >= 0 && j < textureArray[0].length)
 			return textureArray[i][j];
-		return textureArray[0][0]; //Default to the lowest position - Stops the engine complaining...
+		return null;
 	}
 
 	public void setXTileSize(int xTileSize) {
