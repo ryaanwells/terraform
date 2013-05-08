@@ -19,6 +19,9 @@ public class Terraform implements ApplicationListener {
 	private GameMap gameMap;
 	private TileSheet tileSheet;
 	private MapManager mapManager;
+	
+	//Test code
+	private MapRenderer mapRenderer;
 
 	@Override
 	public void create() {
@@ -31,7 +34,11 @@ public class Terraform implements ApplicationListener {
 		//Gdx.input.setInputProcessor(new GameInputProcessor(mapManager, Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
 		//test code
 		MapTile mapTile = new MapTile();
-		tileSheet = new TileSheet(new Texture("assets/testTileMap.png"),64,64);
+		mapTile.setSheetIndex(3, 4);
+		tileSheet = new TileSheet(new Texture("assets/testTileMap.png"),32,32);
+		mapRenderer = new MapRenderer(gameMap, spriteBatch);
+		mapRenderer.setTileSheet(tileSheet);
+		gameMap.setValue(10, 10, mapTile);
 		//mapManager.addTextureToGameMap(10, 10, mapTile);
 		//mapManager.addTextureToGameMap(0, 5, mapTile);
 	}
@@ -46,11 +53,12 @@ public class Terraform implements ApplicationListener {
 	public void render() {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		//mapManager.render();
+		mapRenderer.render(480, 320);
 
-		spriteBatch.begin();
+		/*spriteBatch.begin();
 		spriteBatch.draw(tileSheet.getTileByOffset(2, 2),100,100);
 		spriteBatch.draw(tileSheet.getTileByOffset(0, 0),200,200);
-		spriteBatch.end(); 
+		spriteBatch.end();*/ 
 		
 	}
 

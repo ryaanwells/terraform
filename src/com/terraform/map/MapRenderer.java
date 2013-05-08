@@ -3,6 +3,7 @@ package com.terraform.map;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class MapRenderer {
 	
@@ -31,8 +32,9 @@ public class MapRenderer {
 	private void addAllValidDrawsToBatch(float screenX, float screenY) {
 		for (int i = 0; i < map.getTilesXAxis(); i++) {
 			for (int j = 0; j < map.getTilesYAxis(); j++) {	
+				MapTile currentTile = map.getValueAtIndex(i, j);
+				TextureRegion currentTileTexture = tileSheet.getTileByOffset(currentTile.getSheetIndexX(),currentTile.getSheetIndexY());
 				
-				Texture currentTileTexture = map.getValueAtIndex(i, j).getTexture();
 				if (currentTileTexture == null) 
 					continue;
 				
