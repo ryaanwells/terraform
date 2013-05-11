@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.terraform.input.GameInputProcessor;
 import com.terraform.map.GameMap;
 import com.terraform.map.MapManager;
@@ -15,6 +16,8 @@ import com.terraform.map.TileSheet;
 public class Terraform implements ApplicationListener {
 	
 	private SpriteBatch spriteBatch;
+	private ShapeRenderer shapeRenderer;
+	
 	private GameMap gameMap;
 	private TileSheet tileSheet;
 	private MapManager mapManager;
@@ -27,9 +30,10 @@ public class Terraform implements ApplicationListener {
 		screenHeight = Gdx.graphics.getHeight();
 		
 		spriteBatch = new SpriteBatch();
+		shapeRenderer = new ShapeRenderer();
 		gameMap = new GameMap(20,20);
 		
-		MapRenderer mapRenderer = new MapRenderer (gameMap, spriteBatch);
+		MapRenderer mapRenderer = new MapRenderer (gameMap, spriteBatch, shapeRenderer);
 		tileSheet = new TileSheet(new Texture("assets/testTileMap.png"),32,32);
 		
 		mapRenderer.setTileSheet(tileSheet);
@@ -45,6 +49,8 @@ public class Terraform implements ApplicationListener {
 
 	@Override
 	public void resize(int width, int height) {
+		screenWidth = width;
+		screenHeight = height;
 	}
 
 	@Override

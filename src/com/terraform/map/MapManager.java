@@ -13,6 +13,7 @@ public class MapManager {
 	
 	public void render(int screenWidth, int screenHeight){
 		mapRenderer.render(screenWidth, screenHeight);
+		mapRenderer.drawGrid(screenWidth, screenHeight);
 	}
 	
 	public void eventOn(int xIndex, int yIndex){

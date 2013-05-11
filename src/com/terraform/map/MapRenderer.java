@@ -2,17 +2,21 @@ package com.terraform.map;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 
 public class MapRenderer {
 	
 	private GameMap map;
 	private TileSheet tileSheet;
 	private SpriteBatch spriteBatch;
+	private ShapeRenderer shapeRenderer;
 	private int tilesX, tilesY;
 
-	public MapRenderer(GameMap map, SpriteBatch spriteBatch) {
+	public MapRenderer(GameMap map, SpriteBatch spriteBatch, ShapeRenderer shapeRender) {
 		this.map = map;
 		this.spriteBatch = spriteBatch;
+		this.shapeRenderer = shapeRender;
 		tilesX = map.getNumberOfTilesInXDirection();
 		tilesY = map.getNumberOfTilesInYDirection();
 	}
@@ -27,7 +31,7 @@ public class MapRenderer {
 		
 	}
 
-	private void addAllValidDrawsToBatch(float screenX, float screenY) {
+	private void addAllValidDrawsToBatch(int screenWidth, int screenHeight) {
 		for (int i = 0; i < map.getNumberOfTilesInXDirection(); i++) {
 			for (int j = 0; j < map.getNumberOfTilesInYDirection(); j++) {	
 				MapTile currentTile = map.getValueAtIndex(i, j);
@@ -36,10 +40,21 @@ public class MapRenderer {
 				if (currentTileTexture == null) 
 					continue;
 				
-				spriteBatch.draw(currentTileTexture, i*(screenX/tilesX), j*(screenY/tilesY), 32, 32);
+				spriteBatch.draw(currentTileTexture, (float) i*(screenWidth/tilesX), (float) j*(screenHeight/tilesY), (float) (screenWidth/tilesX), (float) (screenWidth/tilesY));
 				
 			}
 		}
+	}
+	
+	
+	public void drawGrid (int screenWidth, int screenHeight) {
+		shapeRenderer.begin(ShapeType.Rectangle);
+		for (int i = 0; i < map.getNumberOfTilesInXDirection(); i++) {
+			for (int j = 0; j < map.getNumberOfTilesInYDirection(); j++) {	
+				shapeRenderer.rect((float) i*(screenWidth/tilesX), (float) j*(screenWidth/tilesY), (float)(screenWidth/tilesX), (float)(screenWidth/tilesY));
+			}
+		}
+		shapeRenderer.end();
 	}
 
 	public void setTileSheet(TileSheet tileSheet) {
