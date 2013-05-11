@@ -1,7 +1,5 @@
 package com.terraform.map;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
@@ -38,7 +36,7 @@ public class MapRenderer {
 				if (currentTileTexture == null) 
 					continue;
 				
-				spriteBatch.draw(currentTileTexture, i*(screenX/tilesX), j*(screenY/tilesY));	
+				spriteBatch.draw(currentTileTexture, i*(screenX/tilesX), j*(screenY/tilesY), 32, 32);
 				
 			}
 		}
