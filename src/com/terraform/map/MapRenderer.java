@@ -13,8 +13,8 @@ public class MapRenderer {
 	public MapRenderer(GameMap map, SpriteBatch spriteBatch) {
 		this.map = map;
 		this.spriteBatch = spriteBatch;
-		tilesX = map.getTilesXAxis();
-		tilesY = map.getTilesYAxis();
+		tilesX = map.getNumberOfTilesInXDirection();
+		tilesY = map.getNumberOfTilesInYDirection();
 	}
 
 	public void render(int screenX, int screenY) {
@@ -28,8 +28,8 @@ public class MapRenderer {
 	}
 
 	private void addAllValidDrawsToBatch(float screenX, float screenY) {
-		for (int i = 0; i < map.getTilesXAxis(); i++) {
-			for (int j = 0; j < map.getTilesYAxis(); j++) {	
+		for (int i = 0; i < map.getNumberOfTilesInXDirection(); i++) {
+			for (int j = 0; j < map.getNumberOfTilesInYDirection(); j++) {	
 				MapTile currentTile = map.getValueAtIndex(i, j);
 				TextureRegion currentTileTexture = tileSheet.getTileByOffset(currentTile.getSheetIndexX(),currentTile.getSheetIndexY());
 				

@@ -41,8 +41,8 @@ public class GameInputProcessor implements InputProcessor {
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		if(screenX<=screenWidth && screenY<=screenHeight && screenX>=0 && screenY>=0){
-			int xIndex = screenX*mapManager.getTilesXAxis()/screenWidth;
-			int yIndex = (screenHeight - screenY)*mapManager.getTilesYAxis()/screenHeight;
+			int xIndex = screenX*mapManager.getNumberOfTilesInXDirection()/screenWidth;
+			int yIndex = (screenHeight - screenY)*mapManager.getNumberOfTilesInYDirection()/screenHeight;
 			//pass this value off to whoever cares about it
 			System.out.println("[" + xIndex + ", " + yIndex + "]");
 			mapManager.eventOn(xIndex, yIndex);

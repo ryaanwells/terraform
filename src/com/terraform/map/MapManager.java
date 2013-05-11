@@ -1,34 +1,30 @@
 package com.terraform.map;
 
-import com.badlogic.gdx.graphics.Texture;
 
 public class MapManager {
 
 	private GameMap gameMap;
 	private MapRenderer mapRenderer;
-	private int screenX, screenY;
 
 	public MapManager(GameMap gameMap, MapRenderer mapRenderer, int screenX, int screenY) {
 		this.gameMap = gameMap;
 		this.mapRenderer = mapRenderer;
-		this.screenX = screenX;
-		this.screenY = screenY;
 	}
 	
-	public void render(){
-		mapRenderer.render(screenX, screenY);
+	public void render(int screenWidth, int screenHeight){
+		mapRenderer.render(screenWidth, screenHeight);
 	}
 	
 	public void eventOn(int xIndex, int yIndex){
 
 	}
 
-	public int getTilesXAxis() {
-		return gameMap.getTilesXAxis();
+	public int getNumberOfTilesInXDirection() {
+		return gameMap.getNumberOfTilesInXDirection();
 	}
 
-	public int getTilesYAxis() {
-		return gameMap.getTilesYAxis();
+	public int getNumberOfTilesInYDirection() {
+		return gameMap.getNumberOfTilesInYDirection();
 	}
 	
 	public void addTextureToGameMap(int x, int y, MapTile mapTile){

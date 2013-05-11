@@ -5,7 +5,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.terraform.input.GameInputProcessor;
 import com.terraform.map.GameMap;
 import com.terraform.map.MapManager;
@@ -19,9 +18,14 @@ public class Terraform implements ApplicationListener {
 	private GameMap gameMap;
 	private TileSheet tileSheet;
 	private MapManager mapManager;
+	private int screenWidth;
+	private int screenHeight;
 
 	@Override
 	public void create() {
+		screenWidth = Gdx.graphics.getWidth();
+		screenHeight = Gdx.graphics.getHeight();
+		
 		spriteBatch = new SpriteBatch();
 		gameMap = new GameMap(20,20);
 		
@@ -29,8 +33,8 @@ public class Terraform implements ApplicationListener {
 		tileSheet = new TileSheet(new Texture("assets/testTileMap.png"),32,32);
 		
 		mapRenderer.setTileSheet(tileSheet);
-		mapManager = new MapManager(gameMap, mapRenderer, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		Gdx.input.setInputProcessor(new GameInputProcessor(mapManager, Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
+		mapManager = new MapManager(gameMap, mapRenderer, screenWidth, screenHeight);
+		Gdx.input.setInputProcessor(new GameInputProcessor(mapManager, screenWidth,screenHeight));
 		
 		//test code
 		MapTile mapTile = new MapTile();
@@ -41,14 +45,12 @@ public class Terraform implements ApplicationListener {
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void render() {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		mapManager.render();
+		mapManager.render(screenWidth, screenHeight);
 	}
 
 	@Override

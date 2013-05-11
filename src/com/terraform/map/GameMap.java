@@ -9,23 +9,23 @@ public class GameMap {
 	}
 
 	private void initialiseMap() {
-		for (int x = 0; x < getTilesXAxis(); x++) {
-			for (int y = 0; y < getTilesYAxis(); y++) {
+		for (int x = 0; x < getNumberOfTilesInXDirection(); x++) {
+			for (int y = 0; y < getNumberOfTilesInYDirection(); y++) {
 				map[x][y] = new MapTile();
 			}
 		}
 	}
 
-	public int getTilesXAxis() {
+	public int getNumberOfTilesInXDirection() {
 		return map.length;
 	}
 
-	public int getTilesYAxis() {
+	public int getNumberOfTilesInYDirection() {
 		return map[0].length;
 	}
 	
 	public boolean isValidIndex(int x, int y) {
-		return (x>=0 && x<getTilesXAxis() && y>=0 && y<getTilesYAxis());
+		return (x>=0 && x<getNumberOfTilesInXDirection() && y>=0 && y<getNumberOfTilesInYDirection());
 	}
 	
 	public MapTile getValueAtIndex(int x, int y){
@@ -33,7 +33,7 @@ public class GameMap {
 	}
 
 	public int getTileCount() {
-		return getTilesXAxis() * getTilesYAxis();
+		return getNumberOfTilesInXDirection() * getNumberOfTilesInYDirection();
 	}
 
 	public void setValue(int x, int y, MapTile mapTile) {

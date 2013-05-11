@@ -27,12 +27,12 @@ public class MapTests {
 	
 	@Test
 	public void getTilesOnXAxis(){
-		assertEquals(map.getTilesXAxis(),MAP_SIZE_X);
+		assertEquals(map.getNumberOfTilesInXDirection(),MAP_SIZE_X);
 	}
 	
 	@Test
 	public void getTilesOnYAxis(){
-		assertEquals(map.getTilesYAxis(),MAP_SIZE_Y);
+		assertEquals(map.getNumberOfTilesInYDirection(),MAP_SIZE_Y);
 	}
 	
 	@Test
@@ -57,17 +57,17 @@ public class MapTests {
 	
 	@Test
 	public void validIndex_XInvalidOutOfRange(){
-		assertEquals(false,map.isValidIndex(map.getTilesXAxis()+1, 0));
+		assertEquals(false,map.isValidIndex(map.getNumberOfTilesInXDirection()+1, 0));
 	}
 	
 	@Test
 	public void validIndex_YInvalidOutOfRange(){
-		assertEquals(false,map.isValidIndex(0, map.getTilesYAxis()+1));
+		assertEquals(false,map.isValidIndex(0, map.getNumberOfTilesInYDirection()+1));
 	}
 	
 	@Test
 	public void validIndex_XInvalidOutOfRangeYInvalidOutOfRange(){
-		assertEquals(false,map.isValidIndex(map.getTilesXAxis()+1,map.getTilesYAxis()+1));
+		assertEquals(false,map.isValidIndex(map.getNumberOfTilesInXDirection()+1,map.getNumberOfTilesInYDirection()+1));
 	}
 	
 	@Test
@@ -96,19 +96,19 @@ public class MapTests {
 	@Test
 	public void getValueAtIndex_XInvalidOutOfRange(){
 		exception.expect(IndexOutOfBoundsException.class);
-		map.getValueAtIndex(map.getTilesXAxis()+1, 0);
+		map.getValueAtIndex(map.getNumberOfTilesInXDirection()+1, 0);
 	}
 	
 	@Test
 	public void getValueAtIndex_YInvalidOutOfRange(){
 		exception.expect(IndexOutOfBoundsException.class);
-		map.getValueAtIndex(0, map.getTilesYAxis()+1);
+		map.getValueAtIndex(0, map.getNumberOfTilesInYDirection()+1);
 	}
 	
 	@Test
 	public void getValueAtIndex_XInvalidOutOfRangeYInvalidOutOfRange(){
 		exception.expect(IndexOutOfBoundsException.class);
-		map.getValueAtIndex(map.getTilesXAxis()+1, map.getTilesYAxis()+1);
+		map.getValueAtIndex(map.getNumberOfTilesInXDirection()+1, map.getNumberOfTilesInYDirection()+1);
 	}
 	
 	@Test
@@ -119,8 +119,8 @@ public class MapTests {
 	@Test
 	public void mapAllowsTheUserToSetTheSizeOnCreation () {
 		GameMap map = new GameMap(20,20);
-		assertThat(map.getTilesXAxis(), is(20));
-		assertThat(map.getTilesYAxis(), is(20));
+		assertThat(map.getNumberOfTilesInXDirection(), is(20));
+		assertThat(map.getNumberOfTilesInYDirection(), is(20));
 	}
 	
 	@Test 
