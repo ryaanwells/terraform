@@ -40,7 +40,7 @@ public class MapRenderer {
 				if (currentTileTexture == null) 
 					continue;
 				
-				spriteBatch.draw(currentTileTexture, (float) i*(screenWidth/tilesX), (float) j*(screenHeight/tilesY), (float) (screenWidth/tilesX), (float) (screenWidth/tilesY));
+				spriteBatch.draw(currentTileTexture, (float) i*(screenWidth*1.0f/tilesX), (float) j*(screenHeight*1.0f/tilesY), (float) (screenWidth*1.0f/tilesX), (float) (screenHeight*1.0f/tilesY));
 				
 			}
 		}
@@ -51,7 +51,7 @@ public class MapRenderer {
 		shapeRenderer.begin(ShapeType.Rectangle);
 		for (int i = 0; i < map.getNumberOfTilesInXDirection(); i++) {
 			for (int j = 0; j < map.getNumberOfTilesInYDirection(); j++) {	
-				shapeRenderer.rect((float) i*(screenWidth/tilesX), (float) j*(screenWidth/tilesY), (float)(screenWidth/tilesX), (float)(screenWidth/tilesY));
+				shapeRenderer.rect((float) i*(screenWidth*1.0f/tilesX), (float) j*(screenHeight*1.0f/tilesY), (float)(screenWidth*1.0f/tilesX), (float)(screenHeight*1.0f/tilesY));
 			}
 		}
 		shapeRenderer.end();
